@@ -35,7 +35,7 @@ const sendMessage = () => {
   <section class="w-full h-100vh p-1rem">
     <div class="h-full overflow-scroll rounded-lg bg-#343434 relative">
       <header class="text-left text-#000 py-.25rem px-.5rem bg-#afafaf absolute top-0 w-full capitalize">
-        <h2>{{ `${props.side} team` }}</h2>
+        <h2>{{ props?.side }} team</h2>
       </header>
       <div class="chat-wrapper mt-3rem mb-4rem px-1rem overflow-scroll">
         <div class="chat-inner flex flex-col justify-end items-end">

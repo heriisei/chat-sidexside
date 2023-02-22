@@ -1,22 +1,15 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import TheCounter from '../src/components/TheCounter.vue'
+import ChatWindow from '../src/components/ChatWindow.vue'
 
-describe('TheCounter.vue', () => {
-  it('should render', () => {
-    const wrapper = mount(TheCounter, { props: { initial: 10 } })
-    expect(wrapper.text()).toContain('10')
-    expect(wrapper.html()).toMatchSnapshot()
+describe('ChatWindow.vue', () => {
+  it('should render the left window', () => {
+    const wrapper = mount(ChatWindow, { props: { side: 'west' } })
+    expect(wrapper.find('h2').exists()).toBe(true)
   })
 
-  it('should be interactive', async () => {
-    const wrapper = mount(TheCounter, { props: { initial: 0 } })
-    expect(wrapper.text()).toContain('0')
-
-    expect(wrapper.find('.inc').exists()).toBe(true)
-
-    await wrapper.get('button').trigger('click')
-
-    expect(wrapper.text()).toContain('1')
+  it('should render the right window', () => {
+    const wrapper = mount(ChatWindow, { props: { side: 'east' } })
+    expect(wrapper.find('h2').exists()).toBe(true)
   })
 })
